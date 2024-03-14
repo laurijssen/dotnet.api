@@ -1,0 +1,49 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+ name: queryapi
+spec:
+ selector:
+   app: queryapi
+ ports:
+   - protocol: TCP
+     port: 32015
+     targetPort: 32015
+     nodePort: 32015
+ type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: queryapi
+  labels:
+    role: rest-service
+    app: queryapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: queryapi
+  template:
+    metadata:
+      labels:
+        app: queryapi
+    spec:
+      containers:
+      - name: queryapi
+        image: "docker.io/fujifilmimaging/query.api:1.0"
+        imagePullPolicy: Always
+        readinessProbe:
+          initialDelaySeconds: 10
+          periodSeconds: 60
+          httpGet:
+            path: /health
+            port: 32015
+        
+      imagePullSecrets:
+      - name: containerregistries-creds
+
+      nodeSelector:
+       role: apps
