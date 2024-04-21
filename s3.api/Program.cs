@@ -41,8 +41,38 @@ app.MapPut("/upload/{bucketname}/{objectname}/{filepath}", async (string bucketn
 })
 .WithName("Upload");
 
+app.MapDelete("/delete/{bucketname}/{objectname}", async (string bucketname, string objectname, CancellationToken ct, [FromServices] IAmazonS3 client) =>
+{
+    return await DeleteObjectFromBucketAsync(client, bucketname, objectname);
+})
+.WithName("Delete");
+
 
 app.Run();
+
+async Task<bool> DeleteObjectFromBucketAsync(IAmazonS3 client, string bucketName, string objectName)
+{
+    objectName = Uri.UnescapeDataString(objectName);
+    bucketName = Uri.UnescapeDataString(bucketName);
+
+    var request = new DeleteObjectRequest
+    {
+        BucketName = bucketName,
+        Key = objectName,
+    };
+
+    try
+    {
+        var response = await client.DeleteObjectAsync(request);
+
+        return response.HttpStatusCode == System.Net.HttpStatusCode.OK;
+    }
+    catch (AmazonS3Exception ex)
+    {
+        Console.WriteLine($"Error saving {objectName}: {ex.Message}");
+        return false;
+    }
+}
 
 async Task<bool> UploadObjectFromBucketAsync(IAmazonS3 client, string bucketName, string objectName, string filePath)
 {
