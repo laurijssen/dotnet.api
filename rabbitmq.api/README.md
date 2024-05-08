@@ -69,7 +69,7 @@ spec:
 Then add the cluster type RabbitmqCluster which was installed with the cluster operator. There need to be as many PersistentVolumes as there are replicas.
 Type is NodePort here, so the cluster opens from outside and generates a port for rabbitmq's standard ports.
 
-```fipsrabbitmq         NodePort    10.99.22.55    <none>        5672:31075/TCP,15672:30387/TCP,15692:31299/TCP   82m```
+```rabbitmq         NodePort    10.99.22.55    <none>        5672:31075/TCP,15672:30387/TCP,15692:31299/TCP   82m```
 
 For example, here port 31299 maps to rabbitmq's management interface port 15692.
 It's not clear how to set this port manually. It should be possible though.
