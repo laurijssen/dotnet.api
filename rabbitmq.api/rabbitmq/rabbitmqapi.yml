@@ -1,0 +1,44 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+ name: rabbitmqapi
+spec:
+ selector:
+   app: rabbitmqapi
+ ports:
+   - protocol: TCP
+     port: 32005
+     targetPort: 32005
+     nodePort: 32005
+ type: NodePort
+ 
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rabbitmqapi-deployment
+  labels:
+    role: rest-service
+    app: rabbitmqapi
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rabbitmqapi
+  template:
+    metadata:
+      labels:
+        app: rabbitmqapi
+    spec:
+      containers:
+      - name: rabbitmqapi
+        image: "docker.io/fujifilmimaging/rabbitmqapi:1.0"
+        imagePullPolicy: Always
+        envFrom:
+          - secretRef:
+              name: rabbitmqsecret
+      imagePullSecrets:
+      - name: containerregistries-creds
+      nodeSelector:
+       role: apps
