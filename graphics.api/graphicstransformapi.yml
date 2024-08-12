@@ -1,0 +1,54 @@
+﻿apiVersion: v1
+kind: Service
+metadata:
+ name: graphicstransform
+spec:
+ selector:
+   app: graphicstransform
+ ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 80
+     nodePort: 32006
+ type: NodePort
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: graphicstransform
+  labels:
+    role: rest-service
+    app: graphicstransform
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: graphicstransform
+  template:
+    metadata:
+      labels:
+        app: graphicstransform
+    spec:
+      containers:
+      - name: graphicstransform
+        image: "docker.io/fujifilmimaging/graphicstransform:1.0"
+        imagePullPolicy: Always
+        #readinessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 80
+        #  initialDelaySeconds: 10
+         # periodSeconds: 60
+        #livenessProbe:
+        #  httpGet:
+        #    path: /health
+        #    port: 80
+        #  initialDelaySeconds: 10
+        #  periodSeconds: 70
+      imagePullSecrets:
+      - name: containerregistries-creds
+        
+      nodeSelector:
+       role: apps

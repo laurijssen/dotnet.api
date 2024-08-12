@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphicstransform", "graphicstransform.api\graphicstransform.csproj", "{E2CD0034-079E-43E8-9BC5-507D8F487E87}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphicstransform.client", "graphicstransform.client\graphicstransform.client.csproj", "{543893CB-D2E1-4AB8-8052-D58A03273A6D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphicstransform.unittest", "graphicstransform.unittest\graphicstransform.unittest.csproj", "{2AE81233-E112-4268-BE48-F5DA5A8C0ACC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "graphicstransform.service", "graphicstransform.service\graphicstransform.service.csproj", "{70FB451A-5BE0-4128-8C2B-8526D7682E4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9C3D7CE3-5B8E-4BB2-8F53-BEABA957930A}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+		graphicstransformapi.yml = graphicstransformapi.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E2CD0034-079E-43E8-9BC5-507D8F487E87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2CD0034-079E-43E8-9BC5-507D8F487E87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2CD0034-079E-43E8-9BC5-507D8F487E87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2CD0034-079E-43E8-9BC5-507D8F487E87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543893CB-D2E1-4AB8-8052-D58A03273A6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543893CB-D2E1-4AB8-8052-D58A03273A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543893CB-D2E1-4AB8-8052-D58A03273A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543893CB-D2E1-4AB8-8052-D58A03273A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AE81233-E112-4268-BE48-F5DA5A8C0ACC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AE81233-E112-4268-BE48-F5DA5A8C0ACC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AE81233-E112-4268-BE48-F5DA5A8C0ACC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AE81233-E112-4268-BE48-F5DA5A8C0ACC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70FB451A-5BE0-4128-8C2B-8526D7682E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70FB451A-5BE0-4128-8C2B-8526D7682E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70FB451A-5BE0-4128-8C2B-8526D7682E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70FB451A-5BE0-4128-8C2B-8526D7682E4D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AFDF29EB-374F-449D-90A9-8C9095149A4A}
+	EndGlobalSection
+EndGlobal
