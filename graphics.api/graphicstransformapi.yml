@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: graphicstransform
-        image: "docker.io/fujifilmimaging/graphicstransform:1.0"
+        image: "graphicstransform:1.0"
         imagePullPolicy: Always
         #readinessProbe:
         #  httpGet:
