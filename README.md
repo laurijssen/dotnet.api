@@ -1,4 +1,5 @@
-    #!/bin/bash
+```
+#!/bin/bash
 
 if [ $# -lt 4 ]; then
     echo "newproject: arguments <cmd>(new|add) <rootdir> <solution> <projectname>"
@@ -82,3 +83,4 @@ fi
 if [ "${command}" = "add" ]; then
     new
 fi
+```
