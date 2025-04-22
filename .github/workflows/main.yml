@@ -17,8 +17,8 @@ jobs:
       id: generate_token
       uses: actions/create-github-app-token@v1
       with:
-        owner: ${{ github.repository_owner }}
-        repositories: dotnet.api
+#        owner: ${{ github.repository_owner }}
+#        repositories: dotnet.api
         app-id: ${{ secrets.SECRETS_APP_ID }}
         private-key: ${{ secrets.SECRETS_APP_PRIVATE_KEY }}     
     - name: repos
