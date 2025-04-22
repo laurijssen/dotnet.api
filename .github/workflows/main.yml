@@ -1,0 +1,21 @@
+name: github client tests
+run-name: ${{ github.actor }} is testing gh client
+on:
+  workflow_dispatch:
+
+jobs:
+  test-github-client:
+    runs-on: ubuntu-latest
+    steps:
+    - name: check out
+      uses: actions/checkout@v4
+    - name: install gh
+      run: |
+        sudo apt update
+        sudo apt install gh
+    - name: authenticate cli
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token    
+    - name: repos
+      run: gh repo list
+    - name: variable
+      run: gh variable list
