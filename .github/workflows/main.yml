@@ -15,15 +15,17 @@ jobs:
       run: |
         sudo apt update
         sudo apt install gh
-    - name: authenticate cli
-      run: echo "${{ secrets.GITHUB_TOKEN }}" | gh auth login --with-token    
-#    - name: Generate a token
-#      id: generate_token
-#      uses: actions/create-github-app-token@v1
-#      with:
-#        app-id: ${{ secrets.APP_ID }}
-#        private-key: ${{ secrets.APP_PRIVATE_KEY }}     
+    - name: Generate a token
+      id: generate_token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.SECRETS_APP_ID }}
+        private-key: ${{ secrets.SECRETS_APP_PRIVATE_KEY }}     
     - name: repos
+      env:
+        GH_TOKEN: ${{ steps.generate_token.outputs.token }}   
       run: gh repo list
     - name: variable
+      env:
+        GH_TOKEN: ${{ steps.generate_token.outputs.token }}
       run: gh variable set TEST --body "4321"
