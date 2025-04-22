@@ -18,4 +18,4 @@ jobs:
     - name: repos
       run: gh repo list
     - name: variable
-      run: gh variable list
+      run: gh variable set TEST --body "4321"
