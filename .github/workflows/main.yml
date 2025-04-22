@@ -18,6 +18,7 @@ jobs:
       uses: actions/create-github-app-token@v1
       with:
         owner: laurijssen
+        repositories: dotnet.api
         app-id: ${{ secrets.SECRETS_APP_ID }}
         private-key: ${{ secrets.SECRETS_APP_PRIVATE_KEY }}     
     - name: repos
