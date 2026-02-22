@@ -12,6 +12,6 @@ jobs:
         with:
           who_to_greet: Serve
       - name: Log greeting time
-        run: echo "${{ steps.greet.outputs.who_to_greet }}"
+        run: echo "${{ steps.greet.outputs.time }}"
       - name: Log env var
         run: echo $HELLO_TIME
